@@ -19,19 +19,22 @@
             <div class="area-infomações">
                 <p class="instrucoes"> ! Apenas letras minúsculas e sem acento.</p>
                 <div class="area-botao">
-                    <button class="botao-criptografar">Criptografar</button>
+                    <button onclick=botaoClicavel() class="botao-criptografar">Criptografar</button>
                     <button class="botao-descriptografar">Descriptografar</button>
                 </div>
             </div>
+
         </section>
         <div class="area-modal_imagem">
-            <div class="conteudo_modal">
+            <div class="conteudo_modal_imagem">
                 <img class="area-modal_imagem_imagem" src="assets/moça_sentada.png" alt="">
                 <h3 class="titulo_area_modal"> Nenhuma mensagem encontrada</h3>
                 <p class="paragrafo_area_modal"> Digite um texto que você deseja criptografar ou descriptografar.</p>
+                <button onclick=copiarTexto() class="copiar">Copiar</button>
             </div>
         </div>
     </main>
+    <script src="index.js"></script>
 </body>
 
 </html>

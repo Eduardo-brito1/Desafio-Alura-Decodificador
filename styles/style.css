@@ -29,6 +29,7 @@ body {
 
 .logo img {
     width: 60px;
+
 }
 
 .container {
@@ -107,11 +108,10 @@ body {
     flex-direction: column;
     width: 400px;
     height: 525px;
-    gap: 10px;
+    gap: 30px;
     color: var(--color-secundaria);
     font-family: var(--font-primaria);
     border-radius: 15px;
-    padding-bottom: 90px;
     margin-right: 3%;
     background-color: #E9ECF8;
     justify-content: center;
@@ -127,7 +127,7 @@ body {
 .area-modal_imagem_imagem {
     background-color: var(--color-primaria);
     height: 300px;
-    margin-left: 10%;
+    margin-left: 5%;
     width: 336px;
     margin-top: 50px;
     background-color: #E9ECF8;
@@ -149,4 +149,16 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.copiar {
+    width: 328px;
+    height: 60px;
+    border: 2px solid var(--color-secundaria);
+    border-radius: 20px;
+    font-family: var(--font-primaria);
+    font-weight: 400;
+    align-items: center;
+    display: none;
+
 }
