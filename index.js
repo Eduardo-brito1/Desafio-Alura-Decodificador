@@ -7,7 +7,7 @@ let buttonCopiar = document.querySelector(".copiar")
 
 let acentoRegex = /[áàâãäéèêëíìîïóòôõöúùûüçÁÀÂÃÄÉÈÊËÍÌÎÏÓÒÔÕÖÚÙÛÜÇ]/
 
-function botaoClicavel() {
+function botãoCriptografar() {
     if (VerificarTexto() === true) {
         alert('não pode enviar letra maiuscula ou acentos')
     } else {
@@ -17,9 +17,7 @@ function botaoClicavel() {
 
         Mensagem.innerHTML = textoEscrito.value
         textoEscrito.value = '';
-
         mostrarButton()
-
     }
 }
 
@@ -29,7 +27,6 @@ function codificarTexto() {
 
     for (let i = 0; i < textoEscrito.value.length; i++) {
         let valorDigitado = textoEscrito.value
-        console.log(valorDigitado)
         if (valorDigitado[i] === 'a') {
             novoTexto = novoTexto + "ai"
         } else if (valorDigitado[i] === 'e') {
@@ -44,10 +41,48 @@ function codificarTexto() {
             novoTexto = novoTexto + valorDigitado[i]
         }
     }
-    console.log(novoTexto)
 
     return novoTexto
 }
+
+function botaoDescriptografar() {
+    if (VerificarTexto() === true) {
+        alert('não pode enviar letra maiuscula ou acentos')
+    } else {
+        conteudoModal.style.display = 'none'
+        conteudoMensagem.style.display = 'none'
+        textoEscrito.value = descodificarTexto()
+
+        Mensagem.innerHTML = textoEscrito.value
+        textoEscrito.value = '';
+        mostrarButton()
+    }
+}
+function descodificarTexto() {
+    let novoTexto = ''
+
+    for (let i = 0; i < textoEscrito.value.length; i++) {
+        let valorDigitado = textoEscrito.value
+
+        if (valorDigitado.includes('ai') || valorDigitado.includes('enter')
+            || valorDigitado.includes('imes') || valorDigitado.includes('ober')
+            || valorDigitado.includes('ufat')) {
+            novoTexto = valorDigitado.
+                replace(/ai/g, "a").
+                replace(/enter/g, "e").
+                replace(/imes/g, 'i').
+                replace(/ober/g, "o").
+                replace(/ufat/g, "u")
+        }
+        else {
+            novoTexto = novoTexto + valorDigitado[i]
+        }
+    }
+
+    return novoTexto
+
+}
+
 
 
 
@@ -63,12 +98,9 @@ function VerificarTexto(vericacao) {
     }
     return vericacao
 }
-
-
 function mostrarButton() {
     buttonCopiar.style.display = 'block'
 }
-
 function copiarTexto() {
     console.log('botão clicado')
     navigator.clipboard.writeText(textoEscrito.value).catch(function (error) {
