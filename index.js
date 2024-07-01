@@ -5,15 +5,33 @@ let conteudoMensagem = document.querySelector(".titulo_area_modal")
 let Mensagem = document.querySelector(".paragrafo_area_modal")
 let buttonCopiar = document.querySelector(".copiar")
 
+let acentoRegex = /[áàâãäéèêëíìîïóòôõöúùûüçÁÀÂÃÄÉÈÊËÍÌÎÏÓÒÔÕÖÚÙÛÜÇ]/
 
 function botaoClicavel() {
-    console.log(textoEscrito.value)
-    conteudoModal.style.display = 'none'
-    conteudoMensagem.style.display = 'none'
-    Mensagem.innerHTML = textoEscrito.value
+    if (VerificarTexto() === true) {
+        alert('não pode enviar letra maiuscula ou acentos')
+    } else {
 
-    mostrarButton()
+        conteudoModal.style.display = 'none'
+        conteudoMensagem.style.display = 'none'
+
+        Mensagem.innerHTML = textoEscrito.value
+
+        mostrarButton()
+    }
 }
+
+function VerificarTexto(vericacao) {
+    for (let i = 0; i < textoEscrito.value.length; i++) {
+        let caractere = textoEscrito.value[i];
+
+        if (caractere >= "A" && caractere <= "Z" || acentoRegex.test(caractere) === true) {
+            vericacao = true
+        }
+    }
+    return vericacao
+}
+
 
 function mostrarButton() {
     buttonCopiar.style.display = 'block'
