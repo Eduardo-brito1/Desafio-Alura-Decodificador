@@ -1,8 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 :root {
-    --color-primaria: #AAB2D5;
-    --color-secundaria: #757FB2;
+    --color-primaria: #1D4F91;
+    /* Azul profundo */
+    --color-secundaria: #4A773C;
+    /* Verde floresta */
+    --color-destaque: #FFD700;
+    /* Dourado */
+    --color-fundo: #F5F5DC;
+    /* Bege areia */
+    --color-texto: #6D4F28;
+    /* Marrom escuro */
     --color--font-primaria: "Inter", sans-serif;
 }
 
@@ -16,7 +24,7 @@
 body {
     height: 100vh;
     width: 100vw;
-    background-color: var(--color-primaria);
+    background-color: var(--color-fundo);
     overflow: hidden;
 }
 
@@ -62,7 +70,7 @@ body {
     width: 100%;
     border-radius: 5px;
     font-size: 32px;
-    color: #0A3871;
+    color: #ffffff;
 }
 
 .area-infomações {
@@ -79,7 +87,7 @@ body {
 
 .area-botao {
     display: flex;
-    gap: 32px;
+    gap: 12px;
 }
 
 .botao-criptografar {
@@ -90,7 +98,8 @@ body {
     background-color: var(--color-secundaria);
     font-family: var(--font-primaria);
     font-weight: 400;
-    color: #E9ECF8;
+    color: var(--color-fundo);
+    cursor: pointer;
 
 }
 
@@ -101,6 +110,15 @@ body {
     border-radius: 20px;
     font-family: var(--font-primaria);
     font-weight: 400;
+    background-color: #ffffff;
+    color: var(--color-secundaria);
+    cursor: pointer;
+}
+
+.botao-descriptografar:hover {
+    background-color: var(--color-destaque);
+    color: var(--color-primaria);
+    border: 2px solid var(--color-primaria);
 }
 
 .area-infomações {
@@ -118,7 +136,7 @@ body {
     color: var(--color-secundaria);
     font-family: var(--font-primaria);
     border-radius: 15px;
-    background-color: #E9ECF8;
+    background-color: #F5F5DC;
     justify-content: center;
     margin-right: 5%;
     margin-left: 15%;
@@ -140,6 +158,9 @@ body {
     font-size: 1.2em;
     font-weight: 700;
     text-align: center;
+    color: var(--color-destaque);
+    /* Dourado */
+
 }
 
 .informações {
@@ -160,13 +181,16 @@ body {
     background-color: var(--color-primaria);
     height: 40vh;
     width: 90%;
-    background-color: #E9ECF8;
+    background-color: var(--color-fundo);
 }
 
 
 .paragrafo_area_modal {
     text-align: center;
     font-size: 16px;
+    color: var(--color-destaque);
+
+
 }
 
 
@@ -183,4 +207,5 @@ body {
     font-family: var(--font-primaria);
     font-weight: 400;
     margin-left: 5%;
+    cursor: pointer;
 }
