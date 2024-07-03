@@ -73,10 +73,6 @@ Este projeto consiste em um simples aplicativo web que permite criptografar e de
 1. Clone este repositório.
 2. Abra o arquivo `index.html` no seu navegador.
 
-## Contribuição
+## imagem do Projeto
+![Alt text](assets/imagem_projeto.png)
 
-Sinta-se à vontade para abrir issues e enviar pull requests.
-
-## Licença
-
-Este projeto está licenciado sob a licença MIT.
