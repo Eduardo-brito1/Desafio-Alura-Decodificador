@@ -20,7 +20,6 @@ function botãoCriptografar() {
 
         Mensagem.innerHTML = textoCodificado
         textoCopiado = textoCodificado
-        copiarTexto()
 
 
         mostrarButton()
@@ -39,21 +38,28 @@ function copiarTexto() {
 
 function codificarTexto() {
     let novoTexto = ''
+    let valorDigitado = textoEscrito.value
+
 
     for (let i = 0; i < textoEscrito.value.length; i++) {
-        let valorDigitado = textoEscrito.value
-        if (valorDigitado[i] === 'a') {
-            novoTexto = novoTexto + "ai"
-        } else if (valorDigitado[i] === 'e') {
-            novoTexto = novoTexto + 'enter'
-        } else if (valorDigitado[i] === 'i') {
-            novoTexto = novoTexto + 'imes'
-        } else if (valorDigitado[i] === 'o') {
-            novoTexto = novoTexto + 'ober'
-        } else if (valorDigitado[i] === 'u') {
-            novoTexto = novoTexto + 'ufat'
-        } else {
-            novoTexto = novoTexto + valorDigitado[i]
+        let char = valorDigitado[i]
+
+        if (char === 'a') {
+            novoTexto += "ai"
+        } else if (char === 'e') {
+            novoTexto += 'enter'
+        }
+        else if (char === 'i') {
+            novoTexto += 'imes'
+        }
+        else if (char === 'o') {
+            novoTexto += + 'ober'
+        }
+        else if (char === 'u') {
+            novoTexto += 'ufat'
+        }
+        else {
+            novoTexto += char
         }
     }
 
@@ -70,7 +76,6 @@ function botaoDescriptografar() {
         textoCopiado = textoEscrito.value
 
         Mensagem.innerHTML = textoEscrito.value
-        copiarTexto()
         mostrarButton()
     }
     return textoEscrito.value = "digite seu texto"
@@ -101,8 +106,8 @@ function descodificarTexto() {
 
 
 
-function VerificarTexto(vericacao) {
-
+function VerificarTexto() {
+    let vericacao = false;
 
     for (let i = 0; i < textoEscrito.value.length; i++) {
         let char = textoEscrito.value[i];
