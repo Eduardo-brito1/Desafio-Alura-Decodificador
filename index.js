@@ -1,6 +1,6 @@
 let botãoClicavel = document.querySelector('botao-criptografar')
 let textoEscrito = document.querySelector('.area-escrever-texto')
-let conteudoModal = document.querySelector(".area-modal_imagem_imagem")
+let conteudoModal = document.querySelector(".area-modal_imagem")
 let conteudoMensagem = document.querySelector(".titulo_area_modal")
 let Mensagem = document.querySelector(".paragrafo_area_modal")
 let buttonCopiar = document.querySelector(".copiar")
@@ -13,10 +13,13 @@ function botãoCriptografar() {
     } else {
         conteudoModal.style.display = 'none'
         conteudoMensagem.style.display = 'none'
-        textoEscrito.value = codificarTexto()
+        let textoCodificado = codificarTexto()
+        textoEscrito.value = textoCodificado
 
-        Mensagem.innerHTML = textoEscrito.value
-        textoEscrito.value = '';
+        Mensagem.innerHTML = textoCodificado
+        copiarTexto()
+
+
         mostrarButton()
     }
 }
@@ -54,34 +57,34 @@ function botaoDescriptografar() {
         textoEscrito.value = descodificarTexto()
 
         Mensagem.innerHTML = textoEscrito.value
-        textoEscrito.value = '';
         mostrarButton()
     }
 }
 function descodificarTexto() {
     let novoTexto = ''
 
-    for (let i = 0; i < textoEscrito.value.length; i++) {
-        let valorDigitado = textoEscrito.value
+    let valorDigitado = textoEscrito.value
 
-        if (valorDigitado.includes('ai') || valorDigitado.includes('enter')
-            || valorDigitado.includes('imes') || valorDigitado.includes('ober')
-            || valorDigitado.includes('ufat')) {
-            novoTexto = valorDigitado.
-                replace(/ai/g, "a").
-                replace(/enter/g, "e").
-                replace(/imes/g, 'i').
-                replace(/ober/g, "o").
-                replace(/ufat/g, "u")
-        }
-        else {
-            novoTexto = novoTexto + valorDigitado[i]
-        }
+    if (valorDigitado.includes('ai') || valorDigitado.includes('enter') ||
+        valorDigitado.includes('imes') || valorDigitado.includes('ober') ||
+        valorDigitado.includes('ufat')) {
+
+        novoTexto = valorDigitado.
+            replace(/ai/g, "a").
+            replace(/enter/g, "e").
+            replace(/imes/g, 'i').
+            replace(/ober/g, "o").
+            replace(/ufat/g, "u")
     }
-
+    else {
+        novoTexto = novoTexto + valorDigitado[i]
+    }
     return novoTexto
 
 }
+
+
+
 
 
 
@@ -100,10 +103,12 @@ function VerificarTexto(vericacao) {
 }
 function mostrarButton() {
     buttonCopiar.style.display = 'block'
+
 }
 function copiarTexto() {
     console.log('botão clicado')
     navigator.clipboard.writeText(textoEscrito.value).catch(function (error) {
+        consoole.error('Erro ao copiar texto: ', error);
 
     })
 }
