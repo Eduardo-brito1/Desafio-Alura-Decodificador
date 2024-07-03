@@ -79,7 +79,7 @@ body {
 
 .area-botao {
     display: flex;
-    gap: 12px;
+    gap: 32px;
 }
 
 .botao-criptografar {

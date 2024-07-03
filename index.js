@@ -5,6 +5,8 @@ let conteudoMensagem = document.querySelector(".titulo_area_modal")
 let Mensagem = document.querySelector(".paragrafo_area_modal")
 let buttonCopiar = document.querySelector(".copiar")
 
+let textoCopiado = ''
+
 let acentoRegex = /[áàâãäéèêëíìîïóòôõöúùûüçÁÀÂÃÄÉÈÊËÍÌÎÏÓÒÔÕÖÚÙÛÜÇ]/
 
 function botãoCriptografar() {
@@ -17,12 +19,22 @@ function botãoCriptografar() {
         textoEscrito.value = textoCodificado
 
         Mensagem.innerHTML = textoCodificado
+        textoCopiado = textoCodificado
         copiarTexto()
 
 
         mostrarButton()
     }
+    return textoEscrito.value = "digite seu texto"
 }
+function copiarTexto() {
+    console.log('botão clicado')
+    navigator.clipboard.writeText(textoCopiado).catch(function (error) {
+        consoole.error('Erro ao copiar texto: ', error);
+
+    })
+}
+
 
 
 function codificarTexto() {
@@ -55,10 +67,14 @@ function botaoDescriptografar() {
         conteudoModal.style.display = 'none'
         conteudoMensagem.style.display = 'none'
         textoEscrito.value = descodificarTexto()
+        textoCopiado = textoEscrito.value
 
         Mensagem.innerHTML = textoEscrito.value
+        copiarTexto()
         mostrarButton()
     }
+    return textoEscrito.value = "digite seu texto"
+
 }
 function descodificarTexto() {
     let novoTexto = ''
@@ -85,10 +101,6 @@ function descodificarTexto() {
 
 
 
-
-
-
-
 function VerificarTexto(vericacao) {
 
 
@@ -104,11 +116,4 @@ function VerificarTexto(vericacao) {
 function mostrarButton() {
     buttonCopiar.style.display = 'block'
 
-}
-function copiarTexto() {
-    console.log('botão clicado')
-    navigator.clipboard.writeText(textoEscrito.value).catch(function (error) {
-        consoole.error('Erro ao copiar texto: ', error);
-
-    })
 }
